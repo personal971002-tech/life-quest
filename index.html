@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>人生クエスト手帳</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <h1>⚔️ 人生クエスト手帳</h1>
+
+    <h2>冒険者ステータス</h2>
+    <p>レベル：<span id="playerLevel">1</span></p>
+    <p>経験値：<span id="playerExp">0</span> XP</p>
+
+    <h2>新しいクエスト</h2>
+
+    <input
+        type="text"
+        id="questText"
+        placeholder="クエスト名を入力"
+    >
+
+    <button id="addQuestBtn">クエストを追加</button>
+
+    <h2>クエスト一覧</h2>
+    <ul id="questList"></ul>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

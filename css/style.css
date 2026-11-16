@@ -1,0 +1,304 @@
+
+/* ====================================
+   人生クエスト手帳 - style.css
+==================================== */
+
+/* 1. 全体の基本設定 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 15px;
+    background: linear-gradient(135deg, #0b1220, #1c2b42);
+    color: #e8edf5;
+    font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* 2. アプリ全体の幅 */
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 3. ヘッダー */
+.app-header {
+    text-align: center;
+    padding: 35px 20px;
+    margin-bottom: 25px;
+    background: #1d293c;
+    border: 1px solid #93743e;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.app-header h1 {
+    margin: 0 0 10px;
+    color: #f1d28c;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.app-header p {
+    margin: 0;
+    color: #aebed3;
+    font-size: 14px;
+}
+
+/* 4. 各パネル共通 */
+.player-panel,
+.quest-form,
+.quest-board,
+.quest-history {
+    background: #1b273a;
+    padding: 25px;
+    margin-bottom: 22px;
+    border: 1px solid #3c4b63;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    margin: 0 0 20px;
+    color: #f1d28c;
+    font-size: 20px;
+    border-bottom: 1px solid #44516a;
+    padding-bottom: 12px;
+}
+
+/* 5. プレイヤーステータス */
+.player-panel {
+    border-color: #93743e;
+}
+
+.player-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.player-info p {
+    margin: 0 0 15px;
+    font-size: 15px;
+}
+
+#playerLevel,
+#playerExp,
+#nextExp {
+    color: #f5d58a;
+    font-weight: bold;
+}
+
+/* 6. 経験値ゲージ */
+.exp-bar {
+    width: 100%;
+    height: 16px;
+    background: #0e1828;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #53617a;
+}
+
+.exp-progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #b88730, #f5d88f);
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+/* 7. 入力フォーム */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #bfcce0;
+}
+
+#questText,
+#questDifficulty {
+    width: 100%;
+    padding: 14px;
+    background: #101a2a;
+    border: 1px solid #4c5b73;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+#questText:focus,
+#questDifficulty:focus {
+    outline: none;
+    border-color: #e2bc70;
+    box-shadow: 0 0 0 3px rgba(226, 188, 112, 0.15);
+}
+
+#questText::placeholder {
+    color: #8191a9;
+}
+
+/* 8. ボタンの共通設定 */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* 9. クエスト追加ボタン */
+#addQuestBtn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    color: #1d1a13;
+    background: linear-gradient(135deg, #e9c77d, #bc8c38);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* 10. クエスト一覧 */
+#questList,
+#completedList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* JavaScriptで追加するクエストカード */
+.quest-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #26354c;
+    border: 1px solid #455772;
+    border-radius: 10px;
+}
+
+.quest-title {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.quest-exp {
+    color: #f0c979;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* 11. クエスト達成ボタン */
+.complete-btn {
+    padding: 9px 14px;
+    background: #267a5c;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.complete-btn:hover {
+    background: #2e9c73;
+}
+
+/* 12. 達成済みクエスト */
+.completed-item {
+    padding: 14px;
+    margin-bottom: 10px;
+    background: #1d3b34;
+    border-left: 4px solid #49c392;
+    border-radius: 7px;
+    color: #bdebd6;
+}
+
+#emptyMessage {
+    text-align: center;
+    color: #96a8bf;
+    font-size: 14px;
+    padding: 20px;
+}
+
+/* 13. リセットボタン */
+.reset-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#resetBtn {
+    padding: 12px 25px;
+    background: transparent;
+    border: 1px solid #bc6262;
+    color: #f2a2a2;
+}
+
+#resetBtn:hover {
+    background: #6d3030;
+    color: #ffffff;
+}
+
+/* 14. フッター */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #91a2b9;
+    font-size: 13px;
+}
+
+/* 15. スマートフォン対応 */
+@media (max-width: 600px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    .app-header {
+        padding: 25px 15px;
+    }
+
+    .app-header h1 {
+        font-size: 24px;
+    }
+
+    .player-panel,
+    .quest-form,
+    .quest-board,
+    .quest-history {
+        padding: 18px;
+    }
+
+    .player-info {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .player-info p {
+        margin-bottom: 5px;
+    }
+
+    .quest-item {
+        flex-wrap: wrap;
+    }
+
+    .complete-btn {
+        margin-left: auto;
+    }
+}
+body {
+    background-color: red !important;
+}
